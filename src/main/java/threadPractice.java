@@ -51,10 +51,18 @@ public class threadPractice {
         employee e=new employee(10,3);
         student s=new student(9,3);
         Thread t=new Thread(s);
+        Thread t1=new Thread(()->{
+            System.out.println("in lambda runnable");
+            for(int i=0;i<5;i++){
+                System.out.println("multiples of 10 upto 4 "+i*10);
+            }
+        });// using lambda
+        t1.start();
         t.start();
         e.start();
         t.setName("raji");
         e.setName("chinnu");
+        ///t.start(); if we re start the thread we will gwt run time exception
         Thread.currentThread().setName("Nag");
         System.out.println(Thread.currentThread().getName());
         for(int i=0;i<5;i++){
