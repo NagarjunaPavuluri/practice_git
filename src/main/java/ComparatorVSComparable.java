@@ -19,7 +19,7 @@ class customer implements Comparable<customer>{
 
 }
 
-public class MyClass {
+public class ComparatorVSComparable {
     public static void main(String[] args) {
         List<Integer> l=new ArrayList<>();
         l= Arrays.asList(1,4,2,89,45,3,67,1);
@@ -65,5 +65,8 @@ public class MyClass {
         for(customer cd:cu){
             System.out.println(cd.age +"andacc num "+cd.accnum);
         }
+        List<String>ls=Arrays.asList("nag","nagar","pavuluri","a");
+        ls.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+        cu.stream().sorted((a,b)->b.age-a.age).forEach(a->System.out.println(a.age+" "+a.name+" "+a.accnum));
     }
 }
